@@ -1,0 +1,39 @@
+import DocLayout from "@/components/doc-layout"
+import { Card } from "@/components/ui/card"
+
+export default function PennilessAccountVerificationPage() {
+  return (
+    <DocLayout>
+      <div className="space-y-6">
+        <h1 className="text-3xl font-bold">Penniless Account Verification</h1>
+        <p className="text-muted-foreground">Verify bank account without dropping any penny.</p>
+
+        <Card className="p-6">
+          <h2 className="text-xl font-semibold mb-4">Request</h2>
+          <code className="block bg-muted p-3 rounded text-sm mb-2">https://api.ztake.in/verify/penniless</code>
+          <code className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">POST</code>
+          <pre className="bg-muted p-4 rounded text-sm mt-4 overflow-x-auto">
+            {`{
+  "account_number": "77220101845051",
+  "ifsc": "FDRL0007777"
+}`}
+          </pre>
+        </Card>
+
+        <Card className="p-6">
+          <h2 className="text-xl font-semibold mb-4">Response</h2>
+          <pre className="bg-muted p-4 rounded text-sm overflow-x-auto">
+            {`{
+  "status": true,
+  "data": {
+    "account_holder_name": "DAVID PETER",
+    "verified": true,
+    "bank_name": "Federal Bank"
+  }
+}`}
+          </pre>
+        </Card>
+      </div>
+    </DocLayout>
+  )
+}
