@@ -1,0 +1,311 @@
+{
+  "info": {
+    "name": "Ztake API - Full Collection (v1)",
+    "_postman_id": "ztake-full-collection",
+    "description": "Comprehensive Postman export for Ztake (generated 2025-11-13)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "BASE_URL",
+      "value": "https://api.ztake.in"
+    },
+    {
+      "key": "API_KEY",
+      "value": ""
+    },
+    {
+      "key": "WEBHOOK_SECRET",
+      "value": ""
+    },
+    {
+      "key": "SUPPORT_EMAIL",
+      "value": "support@ztake.in"
+    }
+  ],
+  "item": [
+    {
+      "name": "Ztake Payouts",
+      "item": [
+        {
+          "name": "Initiate Payout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{API_KEY}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/client/initiatepayout",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "client",
+                "initiatepayout"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"amount\": 100, \"payment_mode\": \"UPI\", \"reference_id\": \"ref_1001\"}"
+            }
+          }
+        },
+        {
+          "name": "Fetch Balance",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{API_KEY}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/client/fetchbalance",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "client",
+                "fetchbalance"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "PG Collection",
+      "item": [
+        {
+          "name": "Create Static VPA",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{API_KEY}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/pg/vpa/static",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "pg",
+                "vpa",
+                "static"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"vpa\": \"static@ztake\"}"
+            }
+          }
+        },
+        {
+          "name": "UPI Collect",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{API_KEY}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/pg/upi/collect",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "pg",
+                "upi",
+                "collect"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"vpa\": \"static@ztake\", \"amount\": 100}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Verification",
+      "item": [
+        {
+          "name": "PennyDrop Bank Verification",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{API_KEY}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/verification/bank/pennydrop",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "verification",
+                "bank",
+                "pennydrop"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"account_number\": \"1234567890\", \"ifsc\": \"ABCD0123456\"}"
+            }
+          }
+        },
+        {
+          "name": "PAN Lite",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{API_KEY}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/verification/pan/lite",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "verification",
+                "pan",
+                "lite"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"pan\": \"ABCDE1234F\"}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "BBPS",
+      "item": [
+        {
+          "name": "List Categories",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{API_KEY}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/bbps/categories",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "bbps",
+                "categories"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Fetch Bill",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{API_KEY}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/bbps/fetchbill",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "bbps",
+                "fetchbill"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"biller_id\": \"biller_001\", \"consumer_account\": \"12345678\"}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Utilities",
+      "item": [
+        {
+          "name": "IP Whitelist - Add",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{API_KEY}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/settings/ip-whitelist",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "settings",
+                "ip-whitelist"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"ip\": \"203.0.113.5\"}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
